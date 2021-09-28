@@ -5,7 +5,6 @@
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   font-weight: normal;
   vertical-align: baseline;
 }
@@ -24,15 +23,13 @@ summary {
 }
 
 html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *,
 *::after,
 *::before {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 img,
@@ -54,7 +51,6 @@ blockquote,
 q {
   quotes: none;
 }
-
 blockquote::before, blockquote::after,
 q::before,
 q::after {
@@ -103,19 +99,19 @@ pre {
   word-wrap: break-word;
 }
 
-input [type="radio"] {
+input [type=radio] {
   vertical-align: text-bottom;
 }
 
-input [type="checkbox"] {
+input [type=checkbox] {
   vertical-align: bottom;
 }
 
-.ie7 input [type="checkbox"] {
+.ie7 input [type=checkbox] {
   vertical-align: baseline;
 }
 
-.ie6 input[type="checkbox"] {
+.ie6 input[type=checkbox] {
   vertical-align: text-bottom;
 }
 
@@ -150,15 +146,15 @@ sub {
 
 .clickable,
 label,
-input[type="button"],
-input[type="submit"],
-input[type="file"],
+input[type=button],
+input[type=submit],
+input[type=file],
 button {
   cursor: pointer;
 }
 
 button,
-input[type="button"] {
+input[type=button] {
   width: auto;
   overflow: hidden;
 }
@@ -173,32 +169,131 @@ input[type="button"] {
   clear: both;
 }
 
-/* dark shades of primary color*/
-/* The primary/main color */
-/* lighter shades of primary color */
-/* dark shades of secondary color*/
-/* secondary color */
-/* lighter shades of secondary color */
-/* darkest grey - used for headings */
-/* grey used for paragraphs */
-/* lightest grey - used for outlines */
-/* Other Colors used */
 body {
   background: #bdc3c7;
-  font-family: 'Roboto', 'sans-serif';
+  font-family: "Roboto", "sans-serif";
 }
 
-/* dark shades of primary color*/
-/* The primary/main color */
-/* lighter shades of primary color */
-/* dark shades of secondary color*/
-/* secondary color */
-/* lighter shades of secondary color */
-/* darkest grey - used for headings */
-/* grey used for paragraphs */
-/* lightest grey - used for outlines */
-/* Other Colors used */
-.App {
-  background-color: red;
+.outer {
+  transition: transform 300ms ease, border-radius 300ms linear;
+  transition-delay: 800ms;
+  transform: scale(1);
+  font-size: 3rem;
+  position: fixed;
+  inset: 0;
+  border-radius: 0;
 }
-/*# sourceMappingURL=index.css.map */
+.outer .inner {
+  background-color: #2c3e50;
+  position: absolute;
+  inset: 0;
+  color: white;
+  border-radius: inherit;
+  display: grid;
+  place-items: center;
+  transition: transform 500ms ease;
+  transform: translateX(0);
+}
+.outer .inner ul {
+  opacity: 1;
+  transition: opacity 1.3s linear;
+  transition-delay: 300ms;
+}
+.outer .inner ul li {
+  transition: transform 100ms ease;
+}
+.outer .inner ul li:hover {
+  transform: translate(2px, -5px);
+}
+.outer .inner ul .link {
+  color: currentColor;
+  text-decoration: none;
+  position: relative;
+}
+.outer .inner ul .link:after, .outer .inner ul .link::before {
+  --height: 3px;
+  --offset: 5%;
+  position: absolute;
+  content: "";
+  width: calc(100% + var(--offset) * 2);
+  height: var(--height);
+  left: calc(var(--offset) * -1);
+  background-color: currentColor;
+  transition: transform 300ms ease;
+  transform: scaleX(0);
+}
+.outer .inner ul .link::after {
+  bottom: 0;
+  transform-origin: right;
+}
+.outer .inner ul .link::before {
+  bottom: calc(var(--height) * 2);
+  transform-origin: left;
+}
+.outer .inner ul .link:hover::after, .outer .inner ul .link:hover::before {
+  transform: scaleX(1);
+}
+.outer .inner ul .link:hover::after {
+  transform-origin: left;
+}
+.outer .inner ul .link:hover::before {
+  transform-origin: right;
+}
+.outer.closed {
+  transform: scale(0.95);
+  border-radius: 5rem;
+  transition-delay: 0ms;
+}
+.outer.closed .inner {
+  transform: translateX(calc(-100vw - 5%));
+  transition-delay: 300ms;
+}
+.outer.closed .inner ul {
+  opacity: 0;
+  transition-duration: 0.5s;
+  transition-delay: 0ms;
+}
+
+.menuButton {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 50%;
+  font-size: 300%;
+  box-sizing: content-box;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: grid;
+  place-items: center;
+}
+.menuButton svg {
+  z-index: 100;
+  transition: color 250ms linear;
+  outline: none;
+}
+.menuButton::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  background-color: #34495e;
+  border-radius: 50%;
+  transition: transform 250ms ease, opacity 100ms linear;
+  transform: scale(0);
+  opacity: 0;
+}
+.menuButton:hover, .menuButton:focus {
+  color: white;
+}
+.menuButton:hover::after, .menuButton:focus::after {
+  transition: transform 250ms ease, opacity 250ms linear;
+  transform: scale(1);
+  opacity: 1;
+}/*# sourceMappingURL=index.css.map */
