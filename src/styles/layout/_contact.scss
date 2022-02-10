@@ -1,0 +1,96 @@
+.contact {
+	background-color: $primary-dark;
+	min-height: 100vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+
+	.title h1 {
+		color: $primary-light;
+	}
+
+	.call-to-action {
+		color: $accent-color;
+		font-family: 'Poppins', sans-serif;
+		font-size: 1.25rem;
+		font-weight: 600;
+		letter-spacing: 1.5px;
+		text-align: center;
+		margin: 2rem;
+	}
+
+	.contact-form {
+		display: flex;
+		flex-direction: column;
+		width: clamp(50%, 550px, 90%);
+		margin: 2rem auto;
+		margin-bottom: 4rem;
+		input,
+		textarea {
+			margin: 0.25rem;
+			font-family: 'Poppins', sans-serif;
+			font-weight: 500;
+			letter-spacing: 0.5px;
+			padding: 0.5rem;
+			color: $primary-light;
+			background-color: $darker-dark;
+			resize: none;
+		}
+		button {
+			width: max-content;
+			background-color: transparent;
+			border: 0.25rem solid $primary-light;
+			color: $primary-light;
+			font-size: 1.75rem;
+			padding: 0.25em 0.75em;
+			margin: 0.5rem 0;
+			margin-inline: auto 0.5rem;
+		}
+	}
+	footer {
+		background-color: $darker-dark;
+		width: 100%;
+		margin-top: auto;
+		.top-button {
+			background-color: $accent-color;
+			font-size: 3rem;
+			display: grid;
+			place-items: center;
+			width: max-content;
+			margin: 0 auto;
+			color: $primary-light;
+			padding: 0.25rem;
+			transform: translateY(-50%);
+		}
+		.socials-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 2rem;
+			margin-block: 1rem 2rem;
+			.icon {
+				background-color: $primary-dark;
+				color: $primary-light;
+				padding: 0.5rem;
+				font-size: 2.5rem;
+				border-radius: $radius;
+				display: grid;
+				place-items: center;
+
+				transition: background-color 100ms linear;
+				&:hover {
+					background-color: $accent-color;
+				}
+			}
+		}
+		.copyright {
+			font-size: 1.25rem;
+			margin: 1rem;
+			text-align: center;
+			color: $primary-light;
+			.name {
+				color: $accent-color;
+			}
+		}
+	}
+}

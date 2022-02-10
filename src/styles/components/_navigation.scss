@@ -1,141 +1,157 @@
-$navBackground: $bluegray2;
+$navBackground: $secondary-dark;
 
 .outer {
-  transition: transform 300ms ease, border-radius 300ms linear;
-  transition-delay: 800ms;
-  transform: scale(1);
-  font-size: 3rem;
-  position: fixed;
-  inset: 0;
+	transition: transform 300ms ease, border-radius 300ms linear;
+	transition-delay: 800ms;
+	transform: scale(1);
+	font-size: 3rem;
+	position: fixed;
+	inset: 0;
+	z-index: 1;
 
-  border-radius: 0;
-  .inner {
-    background-color: $navBackground;
-    position: absolute;
-    inset: 0;
-    color: white;
-    border-radius: inherit;
+	border-radius: 0;
 
-    display: grid;
-    place-items: center;
+	.inner {
+		background-color: $navBackground;
+		position: absolute;
+		inset: 0;
+		color: $primary-light;
+		border-radius: inherit;
 
-    transition: transform 500ms ease;
+		display: grid;
+		place-items: center;
 
-    transform: translateX(0);
+		transition: transform 500ms ease;
 
-    ul {
-      opacity: 1;
-      transition: opacity 1.3s linear;
-      transition-delay: 300ms;
+		transform: translateX(0);
 
-      li {
-        transition: transform 100ms ease;
-        &:hover {
-          transform: translate(2px, -5px);
-        }
-      }
+		box-shadow: 0 0 20px #00000066;
+		ul {
+			opacity: 1;
+			transition: opacity 1.3s linear;
+			transition-delay: 300ms;
+			width: clamp(30%, 400px, 90%);
 
-      .link {
-        color: currentColor;
-        text-decoration: none;
+			background-color: $primary-dark;
+			padding: 5rem 3rem;
+			border-radius: $radius * 5;
 
-        position: relative;
+			li {
+				transition: transform 100ms ease;
+				text-align: center;
+				&:hover {
+					transform: translate(2px, -5px);
+				}
+			}
 
-        &:after,
-        &::before {
-          --height: 3px;
-          --offset: 5%;
-          position: absolute;
-          content: "";
-          width: calc(100% + var(--offset) * 2);
-          height: var(--height);
-          left: calc(var(--offset) * -1);
-          background-color: currentColor;
+			.link {
+				color: currentColor;
+				text-decoration: none;
 
-          transition: transform 300ms ease;
-          transform: scaleX(0);
-        }
-        &::after {
-          bottom: 0;
-          transform-origin: right;
-        }
-        &::before {
-          bottom: calc(var(--height) * 2);
-          transform-origin: left;
-        }
-        &:hover::after,
-        &:hover::before {
-          transform: scaleX(1);
-        }
-        &:hover::after {
-          transform-origin: left;
-        }
-        &:hover::before {
-          transform-origin: right;
-        }
-      }
-    }
-  }
-  &.closed {
-    transform: scale(0.95);
-    border-radius: 5rem;
-    transition-delay: 0ms;
-    .inner {
-      transform: translateX(calc(-100vw - 5%));
-      transition-delay: 300ms;
+				position: relative;
 
-      ul {
-        opacity: 0;
-        transition-duration: 0.5s;
-        transition-delay: 0ms;
-      }
-    }
-  }
+				&:after,
+				&::before {
+					--height: 3px;
+					--offset: 5%;
+					position: absolute;
+					content: '';
+					width: calc(100% + var(--offset) * 2);
+					height: var(--height);
+					left: calc(var(--offset) * -1);
+					background-color: $accent-color;
+
+					transition: transform 300ms ease;
+					transform: scaleX(0);
+				}
+				&::after {
+					bottom: 0;
+					transform-origin: right;
+				}
+				&::before {
+					bottom: calc(var(--height) * 2);
+					transform-origin: left;
+				}
+				&:hover::after,
+				&:hover::before {
+					transform: scaleX(1);
+				}
+				&:hover::after {
+					transform-origin: left;
+				}
+				&:hover::before {
+					transform-origin: right;
+				}
+			}
+		}
+	}
+	&.closed {
+		transform: scale(0.95);
+		border-radius: 5rem;
+		transition-delay: 0ms;
+		transition: right 0s linear 800ms, transform 200ms ease;
+		right: 100%;
+		.inner {
+			transform: translateX(calc(-100vw - 5%));
+			transition-delay: 300ms;
+
+			ul {
+				opacity: 0;
+				transition-duration: 0.5s;
+				transition-delay: 0ms;
+			}
+		}
+	}
 }
 .menuButton {
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  margin: 1rem;
-  padding: 1rem;
-  border-radius: 50%;
-  font-size: 300%;
-  box-sizing: content-box;
-  border: none;
-  background: none;
-  outline: none;
-  cursor: pointer;
+	position: fixed;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	margin: 1rem;
+	padding: 1rem;
+	border-radius: 50%;
+	font-size: 350%;
+	box-sizing: content-box;
+	border: none;
+	background: none;
+	outline: none;
+	cursor: pointer;
 
-  width: max-content;
-  display: grid;
-  place-items: center;
+	width: max-content;
+	display: grid;
+	place-items: center;
 
-  svg {
-    // color: black;
-    z-index: 100;
-    transition: color 250ms linear;
-    outline: none;
-  }
+	svg {
+		color: $accent-color;
+		z-index: 100;
+		transition: color 250ms linear;
+		outline: none;
+	}
 
-  &::after {
-    position: absolute;
-    content: "";
-    inset: 0;
-    background-color: $bluegray1;
-    border-radius: 50%;
+	// &.open {
+	// 	color: $accent-color;
+	// }
 
-    transition: transform 250ms ease, opacity 100ms linear;
-    transform: scale(0);
-    opacity: 0;
-  }
-  &:hover,
-  &:focus {
-    color: white;
-    &::after {
-      transition: transform 250ms ease, opacity 250ms linear;
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
+	&::after {
+		position: absolute;
+		content: '';
+		inset: 0;
+		background-color: $accent-color;
+		border-radius: 50%;
+
+		transition: transform 250ms ease, opacity 100ms linear;
+		transform: scale(0);
+		opacity: 0;
+	}
+	&:hover {
+		svg {
+			color: $primary-light;
+		}
+		&::after {
+			transition: transform 250ms ease, opacity 250ms linear;
+			transform: scale(1);
+			opacity: 1;
+		}
+	}
 }

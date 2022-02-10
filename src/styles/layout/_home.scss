@@ -1,0 +1,89 @@
+.home {
+	min-height: 100vh;
+	width: 100%;
+	text-align: center;
+	.nameCard {
+		font-weight: 900;
+		letter-spacing: 0.1em;
+		background-color: $primary-dark;
+		color: $primary-light;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		font-size: clamp(1rem, 2.5vw, 2.5rem);
+		position: relative;
+
+		user-select: none;
+
+		border-bottom: 10px solid $accent-color;
+		border-right: 10px solid $accent-color;
+
+		.name {
+			background-color: $accent-color;
+
+			width: max-content;
+			margin-inline: auto;
+			background-clip: text;
+			color: transparent;
+			font-size: clamp(2.5rem, 8vw, 8rem);
+			//   font-weight: 900
+
+			position: relative;
+			&::before {
+				position: absolute;
+				content: '<';
+				left: 0;
+				top: 0;
+				height: 100%;
+				width: max-content;
+				transform: translateX(-100%);
+				color: rgba(255, 255, 255, 0.1);
+			}
+			&::after {
+				position: absolute;
+				content: '/>';
+				right: 0;
+				top: 0;
+				height: 100%;
+				width: max-content;
+				transform: translateX(100%);
+				color: rgba(255, 255, 255, 0.1);
+			}
+
+			span {
+				font-weight: 900;
+				cursor: default;
+				text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+
+				transition: text-shadow 1s ease;
+				&:hover {
+					transition: text-shadow 50ms;
+					text-shadow: 2px 2px rgba(0, 0, 0, 0.6);
+				}
+			}
+		}
+	}
+}
+.title {
+	text-align: center;
+	padding: 1.5rem;
+	// width: max-content;
+	h1 {
+		font-size: clamp(3rem, 5vw, 6rem);
+		color: $accent-color;
+		position: relative;
+		width: max-content;
+		margin: 0 auto;
+		&::after {
+			position: absolute;
+			content: '';
+			background-color: currentColor;
+			width: 80%;
+			height: 0.15em;
+			bottom: 0;
+			left: 0;
+			transform: translate(10%, 100%);
+		}
+	}
+}

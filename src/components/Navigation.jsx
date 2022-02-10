@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import {FiMenu} from 'react-icons/fi';
-import {Link} from 'react-router-dom';
 
 function Navigation() {
     const [open, setOpen] = useState(false);
     return (
         <nav>
-            <button className="menuButton"><FiMenu onClick={() => setOpen(!open)} tabIndex="0"/></button>
+            <button tabIndex="0" className={'menuButton ' + (open ? 'open' : '')} onClick={() => setOpen(!open)}><FiMenu /></button>
             <div className={"outer" + (!open ? " closed" : "")}>
                 <div className="inner">
                     <ul>
-                        <li><Link to="/" className="link" onClick={() => {setOpen(!open)}}>Home</Link></li>
-                        <li><Link to="/abcd" className="link" onClick={() => {setOpen(!open)}}>Experience</Link></li>
-                        <li><Link to="/dcba" className="link" onClick={() => {setOpen(!open)}}>Skills</Link></li>
-                        <li><Link to="/zyxw" className="link" onClick={() => {setOpen(!open)}}>About Me</Link></li>
+                        <li><a href="#home" className="link" onClick={() => {setOpen(!open)}}>Home</a></li>
+                        <li><a href="#about" className="link" onClick={() => {setOpen(!open)}}>About</a></li>
+                        <li><a href="#projects" className="link" onClick={() => {setOpen(!open)}}>Projects</a></li>
+                        <li><a href="#resume" className="link" onClick={() => {setOpen(!open)}}>Resume</a></li>
+                        <li><a href="#contact" className="link" onClick={() => {setOpen(!open)}}>Contact</a></li>
                     </ul>
                 </div>
             </div>
