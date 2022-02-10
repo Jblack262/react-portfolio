@@ -18,38 +18,38 @@ function projects() {
 
     <div className="projects-container">
         <div className="project">
-            <img src={project4} alt="" />
+            <img src={project4} alt="Class Newsletter" />
             <div className="overlay">
-                <h1>Project Name</h1>
-                <a href="http://google.com">Visit Site</a>
+                <h1>Class Newsletter Site</h1>
+                <a href="https://mystudents-nec.netlify.app">Visit Site</a>
             </div>
         </div>
         <div className="project">
-            <img src={project2} alt="" />
+            <img src={project2} alt="Sorting Algorithm Visualizer" />
             <div className="overlay">
-                <h1>Project Name</h1>
-                <a href="http://google.com">Visit Site</a>
+                <h1>Sorting Algorithm Visualizer</h1>
+                <a href="https://nlvya.github.io/sorting-algorithm/">Visit Site</a>
             </div>
         </div>
         <div className="project">
-            <img src={project3} alt="" />
+            <img src={project3} alt="React Example Site" />
             <div className="overlay">
-                <h1>Project Name</h1>
-                <a href="http://google.com">Visit Site</a>
+                <h1>React Example Site</h1>
+                <a href="https://zen-montalcini-279e5b.netlify.app">Visit Site</a>
             </div>
         </div>
         <div className="project">
-            <img src={project7} alt="" />
+            <img src={project7} alt="Vue Portfolio" />
             <div className="overlay">
-                <h1>Project Name</h1>
-                <a href="http://google.com">Visit Site</a>
+                <h1>Vue Portfolio</h1>
+                <a href="https://jblack262.github.io/Vue-portfolio/">Visit Site</a>
             </div>
         </div>
         <div className="project">
-            <img src={project1} alt="" />
+            <img src={project1} alt="Nintendo Console Site" />
             <div className="overlay">
-                <h1>Project Name</h1>
-                <a href="http://google.com">Visit Site</a>
+                <h1>Nintendo Console Site</h1>
+                <a href="https://jblack262.github.io/group-bootstrap-website/">Visit Site</a>
             </div>
         </div>
     </div>
