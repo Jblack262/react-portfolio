@@ -1,6 +1,6 @@
 import {React, useState} from 'react';
 import {FaAngleDoubleUp} from 'react-icons/fa';
-import {AiFillGithub, AiFillLinkedin, AiFillFacebook, AiFillInstagram} from 'react-icons/ai';
+import {AiFillGithub, AiFillLinkedin} from 'react-icons/ai';
 
 // import{ init } from '@emailjs/browser';
 // init("user_6Uq2T5FnmqhSgTyWUcJQw");
